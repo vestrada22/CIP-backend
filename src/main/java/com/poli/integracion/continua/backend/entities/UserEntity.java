@@ -3,6 +3,7 @@ package com.poli.integracion.continua.backend.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity(name = "users")
 @Data
@@ -16,6 +17,7 @@ public class UserEntity {
   private String name;
 
   @Column(nullable = false)
+  @Email
   private String email;
 
   @Column(nullable = false)

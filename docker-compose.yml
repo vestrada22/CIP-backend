@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mydb:
+    image: postgres
+    volumes:
+      - postgresdb:/var/lib/postgresql
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '221293'
+      POSTGRES_DB: 'cip'
+volumes:
+  postgresdb:
+    driver: local
