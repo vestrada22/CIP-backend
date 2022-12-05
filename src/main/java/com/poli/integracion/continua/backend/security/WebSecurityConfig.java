@@ -11,6 +11,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable();
-    http.authorizeHttpRequests().mvcMatchers(HttpMethod.POST, "/users").permitAll().anyRequest().authenticated();
+    http.authorizeHttpRequests().mvcMatchers(HttpMethod.POST, "/users").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/recommendations").permitAll()
+            .anyRequest().authenticated();
   }
 }

@@ -3,7 +3,7 @@ package com.poli.integracion.continua.backend.controllers;
 import com.poli.integracion.continua.backend.entities.UserEntity;
 import com.poli.integracion.continua.backend.models.requests.UserRegisterRequestModel;
 import com.poli.integracion.continua.backend.models.responses.UserResponse;
-import com.poli.integracion.continua.backend.services.IUserService;
+import com.poli.integracion.continua.backend.services.interfaces.user.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
