@@ -14,6 +14,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.authorizeHttpRequests().mvcMatchers(HttpMethod.POST, "/users").permitAll()
             .mvcMatchers(HttpMethod.GET, "/movie").permitAll()
             .mvcMatchers(HttpMethod.GET, "/movie/recommendations").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/credits").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/external_ids").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/videos").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/keywords").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/reviews").permitAll()
+            .mvcMatchers(HttpMethod.GET, "/movie/now_playing").permitAll()
             .anyRequest().authenticated();
   }
 }
