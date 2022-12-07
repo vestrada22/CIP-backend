@@ -3,6 +3,7 @@ package com.poli.integracion.continua.backend.security;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,8 +27,17 @@ public class WebSecurityConfig {
     authenticationFilter.setAuthenticationManager(authManager);
     authenticationFilter.setFilterProcessesUrl("/login");
     return http
-        .csrf().disable()
+        .cors().and().csrf().disable()
         .authorizeRequests()
+        .mvcMatchers(HttpMethod.POST, "/users").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/recommendations").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/credits").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/external_ids").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/videos").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/keywords").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/reviews").permitAll()
+        .mvcMatchers(HttpMethod.GET, "/movie/now_playing").permitAll()
         .anyRequest()
         .authenticated()
         .and()
