@@ -22,6 +22,7 @@ public class UserController {
 
   @PostMapping()
   public UserResponse createUser(@RequestBody @Valid UserRegisterRequestModel userModel) {
+    System.out.println("CREATE USER -> " + userModel);
     UserEntity user = userService.createUser(userModel);
     UserResponse userResponse = new UserResponse();
     BeanUtils.copyProperties(user, userResponse);
